@@ -1,0 +1,119 @@
+1. create employee(emp_id,employee_name,department_name,location,salary), 
+   department(dept_id,department_name),
+   locations (location_id, location_name) tables with relevant attributes.
+
+
+create table department(
+    department_id int primary key,
+    department_name varchar(20)   
+);
+
+
+create table locations(
+     location_id int primary key,
+     location_name varchar(20)   
+);
+
+
+create table employee(
+    emp_id int primary key,
+    employee_name varchar(20),
+    department_id int,
+    location_id int,
+    salary int     
+);
+
+
+
+
+2. create primary key on each table and foreign keys (location->department, department->employee)
+ex: emp_id is PK in emp table, dept_id is PK in dept table, loc_id is PK in location table.
+
+ALTER TABLE employee
+ADD FOREIGN KEY(department_id)
+REFERENCES department(department_id);
+ALTER TABLE employee
+ADD FOREIGN KEY(location_id)
+REFERENCES locations(location_id);
+
+
+3. insert 20 employees data, 4 departments data, 2 locations data.
+INSERT INTO locations(location_id, location_name)
+VALUES (123,'Delhi');
+INSERT INTO locations(location_id, location_name)
+VALUES (456,'Noida');
+INSERT INTO department(department_id, department_name)
+VALUES (111,'CSE');
+INSERT INTO department(department_id, department_name)
+VALUES (112,'IT');
+INSERT INTO department(department_id, department_name)
+VALUES (113,'EEE');
+INSERT INTO department(department_id, department_name)
+VALUES (114,'ECE');
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (1,'Abhishek',111,123,2000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (2,'Melvin',112,456,50000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (3,'Abhinave',113,123,40000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (4,'Tannu',114,456,45000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (5,'Sameer',111,123,20000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (6,'Sid',112,456,50000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (7,'Tina',113,123,40000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (8,'Abs',114,456,45000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (9,'Emp',111,123,25000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (10,'Cat',112,456,50500);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (11,'Namreta',113,123,47000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (12,'Vik',114,456,70000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (13,'Bat',111,123,25000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (14,'Jack',112,456,50000);INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (15,'Sand',113,123,40600);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (16,'Sam',114,456,45900);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (17,'Deepak',111,123,20070);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (18,'Jmd',112,456,50000);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (19,'Pratik',113,123,40090);
+INSERT INTO employee(emp_id,employee_name,department_id,location_id,salary)
+VALUES (20,'Biltu',114,456,45000);
+select * from employee;
+
+4. write below queries:
+a) display all employees names and their department names
+
+select e.employee_name,d.department_name from employee e left join department d on e.department_id = d.department_id;
+
+b) display all location_name, department_name, employee_name, salary for all matching rows from 3 tables
+
+select l.location_name,d.department_name,e.employee_name,e.salary from employee e, department d, locations l where e.department_id=d.department_id and e.location_id=l.location_id;
+
+c) select location_name, department_name, average_salary(of each location) 
+
+select l.location_name,d.department_name,avg(salary) 
+from employee e, department d, locations l 
+where e.department_id=d.department_id and e.location_id=l.location_id
+group by l.location_name;
+
+additional queries:
+>> Show departments with no of employees
+>> Show locations with no of department where no of department is 2
+
+select l.location_id, count(distinct(d.department_id))  
+from employee e, department d, locations l 
+where e.department_id=d.department_id and e.location_id=l.location_id
+group by l.location_id having count(distinct(d.department_id)) = 2;
+
+
