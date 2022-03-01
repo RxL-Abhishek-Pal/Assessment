@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript jQuery Assignment</title>
+        <link rel="stylesheet" href="Assignment.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h1 style="text-align: center; font-family: 'Gill Sans'; color: #ff6000;">Name: Abhishek Pal</h1>
+        <table width ="100%">
+            <tr>
+                <td><input type="checkbox"></td>
+                <td><a href="https://www.google.com" target="_blank">Google</a></td>
+                <td>Larry Page and Sergey Bin</td>
+                <td>Google LLC is an American multinational technology company 
+                    that specializes in Internet-related services and products, 
+                    which include a search engine, online advertising technologies, 
+                    cloud computing, software, and hardware.</td>
+                <td><button class="button button1">Edit</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td><a href="https://www.facebook.com/" target="_blank">Facebook</a></td>
+                <td>Mark Zuckerberg</td>
+                <td>Facebook Inc.is an American multinational technology
+                    conglomerate based in Menlo Park, California.
+                    The company is the parent organization of Facebook,
+                    Instagram, and WhatsApp, among other subsidiaries.</td>
+                <td><button class="button button2">Edit</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td><a href="https://twitter.com/" target="_blank">Twitter</a></td>
+                <td>Jack Dorsey</td>
+                <td>Twitter is an American microblogging and social networking service 
+                    on which users post and interact with messages known as "tweets". 
+                    Registered users can post, like, and retweet tweets, but unregistered
+                    users can only read those that are publicly available.</td>
+                <td><button class="button button3">Edit</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td><a href="https://www.youtube.com" target="_blank">Youtube</a></td>
+                <td>Steve Chen, Chad Hurley, and Jawed Karim</td>
+                <td>YouTube is an American online video sharing and social media
+                    platform owned by Google. It was launched on February 14, 2005,
+                    by Steve Chen, Chad Hurley, and Jawed Karim. It is the second most
+                    visited website, right after Google itself.</td>
+                <td><button class="button button4">Edit</td>
+            </tr>
+        </table>
+        
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Open modal for @fat</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Recipient:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="mb-3">
+                    <label for="message-text" class="col-form-label">Message:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
